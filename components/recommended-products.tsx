@@ -3,7 +3,9 @@ import { ProductCard } from '#/components/product-card';
 import { headers } from 'next/headers';
 import { delayRecommendedProducts } from '#/lib/constants';
 
-export async function RecommendedProducts() {
+export async function RecommendedProducts({page}:{
+    page:number|undefined;
+}) {
   headers();
   let products: Product[] = await fetch(
     // We intentionally delay the response to simulate a slow data
@@ -23,7 +25,7 @@ export async function RecommendedProducts() {
           Recommended Products for You
         </div>
         <div className="text-sm text-gray-400">
-          Based on your preferences and shopping habits
+          Based on your preferences and shopping habits  {page}
         </div>
       </div>
       <div className="grid grid-cols-4 gap-6">
@@ -43,7 +45,6 @@ function ProductSkeleton() {
   return (
     <div className="col-span-4 space-y-4 lg:col-span-1">
       <div className={`relative h-[167px] rounded-xl bg-gray-900 ${shimmer}`} />
-
       <div className="h-4 w-full rounded-lg bg-gray-900" />
       <div className="h-6 w-1/3 rounded-lg bg-gray-900" />
       <div className="h-4 w-full rounded-lg bg-gray-900" />
