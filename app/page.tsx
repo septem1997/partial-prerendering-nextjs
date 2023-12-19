@@ -7,11 +7,7 @@ import { Reviews, ReviewsSkeleton } from '#/components/reviews';
 import { SingleProduct } from '#/components/single-product';
 import { Ping } from '#/components/ping';
 
-export default function Page({searchParams}:{
-    searchParams:{
-        page:number|undefined;
-    }
-}) {
+export default function Page() {
   return (
     <div className="space-y-8 lg:space-y-14">
       <SingleProduct />
@@ -19,7 +15,7 @@ export default function Page({searchParams}:{
       <Ping />
 
       <Suspense fallback={<RecommendedProductsSkeleton />}>
-        <RecommendedProducts page={searchParams.page} />
+        <RecommendedProducts />
       </Suspense>
 
       <Ping />

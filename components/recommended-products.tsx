@@ -3,9 +3,7 @@ import { ProductCard } from '#/components/product-card';
 import { headers } from 'next/headers';
 import { delayRecommendedProducts } from '#/lib/constants';
 
-export async function RecommendedProducts({page}:{
-    page:number|undefined;
-}) {
+export async function RecommendedProducts() {
   headers();
   let products: Product[] = await fetch(
     // We intentionally delay the response to simulate a slow data
@@ -20,12 +18,13 @@ export async function RecommendedProducts({page}:{
 
   return (
     <div className="space-y-6" data-headers={headers()}>
+      {JSON.stringify(headers())}
       <div>
         <div className="text-lg font-medium text-white">
           Recommended Products for You
         </div>
         <div className="text-sm text-gray-400">
-          Based on your preferences and shopping habits  {page}
+          Based on your preferences and shopping habits
         </div>
       </div>
       <div className="grid grid-cols-4 gap-6">
