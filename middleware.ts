@@ -3,11 +3,6 @@ import type { NextRequest } from 'next/server';
 
 // the following code is taken from : https://nextjs.org/docs/advanced-features/middleware#setting-headers
 export function middleware(request: NextRequest) {
-  console.log('middleware', {
-    // @ts-ignore
-    pathname: request.nextUrl.pathname,
-    search: request.nextUrl.search,
-  });
   const requestHeaders = new Headers(request.headers);
   requestHeaders.set('x-search', request.nextUrl.search);
 
