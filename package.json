@@ -25,7 +25,8 @@
     "geist": "1.1.0",
     "next": "15.0.0-canary.12",
     "react": "19.0.0-rc.0",
-    "react-dom": "19.0.0-rc.0"
+    "react-dom": "19.0.0-rc.0",
+    "babel-plugin-react-compiler": "0.0.0-experimental-938cd9a-20240601"
   },
   "devDependencies": {
     "@tailwindcss/forms": "0.5.7",
