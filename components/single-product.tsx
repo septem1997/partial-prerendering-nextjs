@@ -1,4 +1,3 @@
-import { Pricing } from '#/components/pricing';
 import type { Product } from '#/types/product';
 import { ProductRating } from '#/components/product-rating';
 import Image from 'next/image';
@@ -7,9 +6,9 @@ export async function SingleProduct() {
   const product: Product = await fetch(
     `https://app-router-api.vercel.app/api/products?id=1`,
   ).then((res) => res.json());
-
   return (
     <div className="grid grid-cols-4 gap-6">
+      {Date.now()}
       <div className="col-span-2 md:order-1 md:col-span-1">
         <div className="space-y-2">
           <div className="relative aspect-square">
@@ -58,9 +57,7 @@ export async function SingleProduct() {
         </div>
       </div>
 
-      <div className="col-span-2 md:order-3 md:col-span-1">
-        <Pricing product={product} />
-      </div>
+      <div className="col-span-2 md:order-3 md:col-span-1"></div>
 
       <div className="col-span-full space-y-4 md:order-2 md:col-span-2">
         <div className="truncate text-xl font-medium text-white lg:text-2xl">

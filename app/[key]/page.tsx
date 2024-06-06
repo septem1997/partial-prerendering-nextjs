@@ -7,9 +7,17 @@ import { Reviews, ReviewsSkeleton } from '#/components/reviews';
 import { SingleProduct } from '#/components/single-product';
 import { Ping } from '#/components/ping';
 
-export default function Page() {
+export default function Page({
+  params: { key },
+}: {
+  params: {
+    key: string;
+  };
+}) {
+  console.log(process.env);
   return (
     <div className="space-y-8 lg:space-y-14">
+      {key + Date.now()}
       <SingleProduct />
 
       <Ping />
